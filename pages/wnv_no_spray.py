@@ -25,7 +25,7 @@ st.sidebar.info('## What if all trap areas were not sprayed?')
 col1, col2 = st.columns(2) # format 2 columns 
 
 with col1:
-    fig = px.density_mapbox(no_spray_df, 
+        fig = px.density_mapbox(no_spray_df, 
                             lat='Latitude', 
                             lon='Longitude', 
                             z='WnvPresent', 
@@ -34,14 +34,14 @@ with col1:
                             height=750,
                             title='Density map of West Nile Virus if all trap area were NOT sprayed'
                             )
-    fig.update_layout(mapbox_style="carto-positron", mapbox_center = {"lat": 41.85, "lon": -87.63})
+        fig.update_layout(mapbox_style="carto-positron", mapbox_center = {"lat": 41.85, "lon": -87.63})
                                            
-    fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
+        fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
            
-    st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True)
    
 with col2:
-     fig = px.density_mapbox(spray_df, 
+        fig = px.density_mapbox(spray_df, 
                             lat='Latitude', 
                             lon='Longitude', 
                             z='WnvPresent', 
@@ -50,8 +50,8 @@ with col2:
                             height=750,
                             title='Density map of West Nile Virus if all trap area were ALL sprayed'
                             )
-    fig.update_layout(mapbox_style="carto-positron",  mapbox_center = {"lat": 41.85, "lon": -87.63})
+        fig.update_layout(mapbox_style="carto-positron",  mapbox_center = {"lat": 41.85, "lon": -87.63})
 
-    fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
+        fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
            
-    st.plotly_chart(fig, use_container_width=True) 
+        st.plotly_chart(fig, use_container_width=True) 
