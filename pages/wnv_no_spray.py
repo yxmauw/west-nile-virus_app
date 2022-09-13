@@ -48,7 +48,7 @@ st.pyplot(fig)
                   #title='Density map of West Nile Virus if all trap area were NOT sprayed')
 
 #fig.update(layout_coloraxis_showscale=False, 
-           ) # removes default color scale on the side
+           #) # removes default color scale on the side
 #f = go.FigureWidget(fig)
 #st.plotly_chart(f, use_container_width=True)
 #chart = st.plotly_chart(fig, use_container_width=True)
