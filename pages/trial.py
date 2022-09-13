@@ -1,9 +1,9 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import plotly.graph_objects as go
-import plotly.express as px
-from plotly.subplots import make_subplots
+#import plotly.graph_objects as go
+#import plotly.express as px
+#from plotly.subplots import make_subplots
 import pickle
 import matplotlib.pyplot as plt
 
@@ -33,7 +33,7 @@ mapdata = mapdata()
 aspect = mapdata.shape[0] * 1.0 / mapdata.shape[1]
 lon_lat_box = (-88.0, -87.5, 41.6, 42.1)
 
-fig, ax = subplots(1,1,figsize=(10,14))
+fig, ax = plt.subplots(1,1,figsize=(10,14))
 
 ax.imshow(mapdata, 
                cmap=plt.get_cmap('gray'), 
