@@ -43,9 +43,12 @@ with col1:
         fig.update_layout(mapbox_style="carto-positron", mapbox_center = {"lat": 41.85, "lon": -87.7})
                                            
         fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
+        
+        fig.on('plotly_sliderchange', function(e){console.log(e.step.label);} # autoplay loop
            
         st.plotly_chart(fig, use_container_width=False)
-   
+        
+     
 with col2:
         fig = px.density_mapbox(spray_df, 
                             lat='Latitude', 
@@ -60,5 +63,7 @@ with col2:
         fig.update_layout(mapbox_style="carto-positron",  mapbox_center = {"lat": 41.85, "lon": -87.7})
 
         fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
+               
+        fig.on('plotly_sliderchange', function(e){console.log(e.step.label);} # autoplay loop
            
         st.plotly_chart(fig, use_container_width=False) 
