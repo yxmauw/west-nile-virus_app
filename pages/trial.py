@@ -46,7 +46,7 @@ st.pyplot(fig)
 f = st.pyplot(fig)
 
 def animate(i):
-    ax.set_ydata(no_spray_df[i:50+i])
+    fig.set_ydata(no_spray_df[i:50+i])
     f.pyplot(fig)
     
 for i in range(1000):
