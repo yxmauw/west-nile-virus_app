@@ -20,6 +20,8 @@ def data_spray():
 no_spray_df = data_no_spray().drop_duplicates()
 spray_df = data_spray().drop_duplicates()
 
+mapboxt = open('.mapbox_token.txt').read()
+
 fig = make_subplots(
     rows=1, cols=2,
     subplot_titles=("Plot 1", "Plot 2"),
@@ -36,8 +38,19 @@ fig.add_trace(go.Densitymapbox(lat=spray_df['Latitude'], lon=['Longitude']), z=s
                     subplot=mapbox,
               row=1, col=2)
 
-fig.update_layout(mapbox_style="carto-positron",  mapbox_center = {"lat": 41.85, "lon": -87.7})
+#update the common attributes:
+fig.update_mapboxes(
+        accesstoken=mapboxt,
+        center=dict(
+            lat=41.85,
+            lon=-87.7
+        ),
+        zoom=8)
+   
+#update different styles:
+fig.update_layout(mapbox_style="carto-positron", mapbox2_style="carto-positron")
 
 fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
 
 st.plotly_chart(fig, use_container_width=False) 
+
