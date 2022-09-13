@@ -46,9 +46,9 @@ fig.update_mapboxes(
         zoom=8)
    
 #update different styles:
-fig.update_layout(mapbox_style="carto-positron", mapbox2_style="carto-positron")
+fig.update_layout(mapbox_style="carto-positron", mapbox2_style="carto-positron", layout_coloraxis_showscale=False)
 
-fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
+# fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
 
 st.plotly_chart(fig, use_container_width=False) 
 
