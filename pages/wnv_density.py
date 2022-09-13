@@ -37,7 +37,7 @@ with col1:
                             animation_frame='Date',
                             zoom=9,
                             height=750,
-                            width=500,
+                            width=600,
                             title='Density map of West Nile Virus if all trap area were NOT sprayed'
                             )
         fig.update_layout(mapbox_style="carto-positron", mapbox_center = {"lat": 41.85, "lon": -87.63})
@@ -54,7 +54,7 @@ with col2:
                             animation_frame='Date',
                             zoom=9,
                             height=750,
-                            width=500,
+                            width=600,
                             title='Density map of West Nile Virus if all trap area were ALL sprayed'
                             )
         fig.update_layout(mapbox_style="carto-positron",  mapbox_center = {"lat": 41.85, "lon": -87.63})
