@@ -28,12 +28,12 @@ fig = make_subplots(
     specs=[[{"type": "mapbox"}, {"type": "mapbox"}]])
           
 
-fig.add_trace(go.Densitymapbox(lat=no_spray_df['Latitude'], lon=no_spray_df['Longitude']), z=no_spray_df['WnvPresent'], 
-                    radius = 4,
+fig.add_trace(go.Densitymapbox(lat=no_spray_df['Latitude'], lon=no_spray_df['Longitude'], z=no_spray_df['WnvPresent'], 
+                    radius = 4,), 
               row=1, col=1)
 
-fig.add_trace(go.Densitymapbox(lat=spray_df['Latitude'], lon=['Longitude']), z=spray_df['WnvPresent'], 
-                    radius = 4,
+fig.add_trace(go.Densitymapbox(lat=spray_df['Latitude'], lon=['Longitude'], z=spray_df['WnvPresent'], 
+                    radius = 4,), 
               row=1, col=2)
 
 #update the common attributes:
