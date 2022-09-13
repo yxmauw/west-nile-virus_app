@@ -25,8 +25,8 @@ st.sidebar.info('## What if all trap areas were not sprayed?')
 fig = go.Figure(go.Densitymapbox(lat=df.Latitude, 
                                  lon=df.Longitude, 
                                  z=df.WnvPresent,
-                                 radius=10,
-                                 title='Density map of West Nile Virus if all trap area were NOT sprayed'))
+                                 radius=10
+                                 ))
 
 fig.update_traces(colorbar_tickformatstops=[9,None], selector=dict(type='densitymapbox'))
 #fig = px.scatter_mapbox(df1, 
@@ -41,7 +41,8 @@ fig.update_layout(mapbox_style="carto-positron",
                   mapbox_center = {"lat": 41.85, "lon": -87.63},
                   height=650)
 
-fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
+fig.update(layout_coloraxis_showscale=False, 
+           title='Density map of West Nile Virus if all trap area were NOT sprayed') # removes default color scale on the side
 f = go.FigureWidget(fig)
 st.plotly_chart(f, use_container_width=True)
 #chart = st.plotly_chart(fig, use_container_width=True)
