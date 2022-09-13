@@ -46,7 +46,7 @@ fig.update_mapboxes(
         zoom=8)
    
 #update different styles:
-fig.update_layout(mapbox_style="carto-positron", mapbox2_style="carto-positron", coloraxis1=dict(autocolorscale=False), coloraxis2=dict(autocolorscale=False))
+fig.update_layout(mapbox_style="carto-positron", mapbox2_style="carto-positron", coloraxis1=dict(showscale=False), coloraxis2=dict(showscale=False))
 #fig.update_coloraxes(showscale=False)
 
 # fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
