@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
 import pickle
+import matplotlib.pyplot as plt
 
 st.set_page_config(layout="wide")
 
