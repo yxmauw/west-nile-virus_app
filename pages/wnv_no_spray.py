@@ -22,16 +22,17 @@ st.sidebar.info('## What if all trap areas were not sprayed?')
 
 #px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
 
-fig = go.Figure(go.Densitymapbox(lat=df.Latitude, 
-                                 lon=df.Longitude, 
-                                 z=df.WnvPresent,
-                                 radius=10
-                                 ),
-               layout=go.Layout(yaxis=dict(range=[41.6, 42.1]),
-                               xaxis=dict(range=[-88.0, -87.5]))
-               )
+mapdata = np.loadtxt("mapdata_copyright_openstreetmap_contributors.txt")
+# set up base map
+aspect = mapdata.shape[0] * 1.0 / mapdata.shape[1]
+lon_lat_box = (-88.0, -87.5, 41.6, 42.1)
 
-fig.update_traces(colorbar_tickformatstops=[dict(dtickrange=[30,30])], selector=dict(type='densitymapbox'))
+plt.figure(figsize=(10,14))
+fig = plt.imshow(mapdata, 
+           cmap=plt.get_cmap('gray'), 
+           extent=lon_lat_box, 
+           aspect=aspect)
+st.pyplot(fig)
 
 #fig = px.scatter_mapbox(df1, 
                         #lat='Latitude', 
@@ -41,15 +42,15 @@ fig.update_traces(colorbar_tickformatstops=[dict(dtickrange=[30,30])], selector=
                         #height=650,
                         #title='''Density map of West Nile Virus if all trap area were NOT sprayed'''
                         #)
-fig.update_layout(mapbox_style="carto-positron", 
-                  mapbox_center = {"lat": 41.85, "lon": -87.63},
-                  height=650,
-                  title='Density map of West Nile Virus if all trap area were NOT sprayed')
+#fig.update_layout(mapbox_style="carto-positron", 
+                  #mapbox_center = {"lat": 41.85, "lon": -87.63},
+                  #height=650,
+                  #title='Density map of West Nile Virus if all trap area were NOT sprayed')
 
-fig.update(layout_coloraxis_showscale=False, 
+#fig.update(layout_coloraxis_showscale=False, 
            ) # removes default color scale on the side
-f = go.FigureWidget(fig)
-st.plotly_chart(f, use_container_width=True)
+#f = go.FigureWidget(fig)
+#st.plotly_chart(f, use_container_width=True)
 #chart = st.plotly_chart(fig, use_container_width=True)
 
 #for i in range(len(df2)):
