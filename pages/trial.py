@@ -42,8 +42,10 @@ ax.imshow(mapdata,
 
 st.pyplot(fig)
 
+f = st.pyplot(fig)
+
 for i in range(len(no_spray_df)):
-    fig.add_rows(no_spray_df)
+    f.add_rows(no_spray_df)
     # Sleep for a moment just for demonstration purposes, so that the new data
     # animates in.
     time.sleep(0.1)
