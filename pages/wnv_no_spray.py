@@ -39,10 +39,11 @@ fig.update_traces(colorbar_tickformatstops=[{dtickrange:[9,None]}], selector=dic
                         #)
 fig.update_layout(mapbox_style="carto-positron", 
                   mapbox_center = {"lat": 41.85, "lon": -87.63},
-                  height=650)
+                  height=650,
+                  title='Density map of West Nile Virus if all trap area were NOT sprayed')
 
 fig.update(layout_coloraxis_showscale=False, 
-           title='Density map of West Nile Virus if all trap area were NOT sprayed') # removes default color scale on the side
+           ) # removes default color scale on the side
 f = go.FigureWidget(fig)
 st.plotly_chart(f, use_container_width=True)
 #chart = st.plotly_chart(fig, use_container_width=True)
