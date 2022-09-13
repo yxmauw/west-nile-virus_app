@@ -45,10 +45,12 @@ st.pyplot(fig)
 
 f = st.pyplot(fig)
 
-for i in range(len(no_spray_df)):
-    f.add_rows(no_spray_df)
-    # Sleep for a moment just for demonstration purposes, so that the new data
-    # animates in.
+def animate(i):
+    ax.set_ydata(no_spray_df[i:50+i])
+    f.pyplot(fig)
+    
+for i in range(1000):
+    animate(i)
     time.sleep(0.1)
 
 #fig = make_subplots(
