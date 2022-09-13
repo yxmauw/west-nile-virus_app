@@ -32,7 +32,7 @@ fig = st.map(df1)
                         #title='''Density map of West Nile Virus if all trap area were NOT sprayed'''
                         #)
 #fig.update_layout(mapbox_style="carto-positron", 
-                  mapbox_center = {"lat": 41.85, "lon": -87.63})
+                 # mapbox_center = {"lat": 41.85, "lon": -87.63})
 
 #fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
 #st.plotly_chart(fig, use_container_width=True)
