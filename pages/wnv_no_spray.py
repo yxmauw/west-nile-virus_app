@@ -18,24 +18,24 @@ df2 = df.iloc[10:]
 st.sidebar.title('🦟 Identifying presence of West Nile Virus per Trap')
 st.sidebar.info('## What if all trap areas were not sprayed?')
 
-#px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
+
+px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
+fig = st.map(df1)
 # this format allows animation
 
-fig = px.scatter_mapbox(df1, 
-                        lat='Latitude', 
-                        lon='Longitude', 
-                        color='WnvPresent', 
-                        #animation_frame=df.index,
-                        #radius=10,
-                        zoom=9,
-                        height=650,
-                        title='''Density map of West Nile Virus if all trap area were NOT sprayed'''
-                        )
-fig.update_layout(mapbox_style="carto-positron", 
+#fig = px.scatter_mapbox(df1, 
+                        #lat='Latitude', 
+                        #lon='Longitude', 
+                        #color='WnvPresent', 
+                        #zoom=9,
+                        #height=650,
+                        #title='''Density map of West Nile Virus if all trap area were NOT sprayed'''
+                        #)
+#fig.update_layout(mapbox_style="carto-positron", 
                   mapbox_center = {"lat": 41.85, "lon": -87.63})
 
-fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
-st.plotly_chart(fig, use_container_width=True)
+#fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
+#st.plotly_chart(fig, use_container_width=True)
 
 for i in range(len(df2)):
     fig.add_rows(df2)
