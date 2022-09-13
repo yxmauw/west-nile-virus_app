@@ -27,11 +27,11 @@ mapdata = np.loadtxt("mapdata_copyright_openstreetmap_contributors.txt")
 aspect = mapdata.shape[0] * 1.0 / mapdata.shape[1]
 lon_lat_box = (-88.0, -87.5, 41.6, 42.1)
 
-plt.figure(figsize=(10,14))
 fig = plt.imshow(mapdata, 
            cmap=plt.get_cmap('gray'), 
            extent=lon_lat_box, 
-           aspect=aspect)
+           aspect=aspect,
+           figsize=(10,14) )
 st.pyplot(fig)
 
 #fig = px.scatter_mapbox(df1, 
