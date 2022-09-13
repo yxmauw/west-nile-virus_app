@@ -26,7 +26,6 @@ fig = go.Figure(go.Densitymapbox(lat=df.Latitude,
                                  lon=df.Longitude, 
                                  z=df.WnvPresent,
                                  radius=10,
-                                 height=650,
                                  title='Density map of West Nile Virus if all trap area were NOT sprayed'))
 
 fig.update_traces(colorbar_tickformatstops=[9,None], selector=dict(type='densitymapbox'))
@@ -39,7 +38,8 @@ fig.update_traces(colorbar_tickformatstops=[9,None], selector=dict(type='density
                         #title='''Density map of West Nile Virus if all trap area were NOT sprayed'''
                         #)
 fig.update_layout(mapbox_style="carto-positron", 
-                  mapbox_center = {"lat": 41.85, "lon": -87.63})
+                  mapbox_center = {"lat": 41.85, "lon": -87.63},
+                  height=650)
 
 fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
 f = go.FigureWidget(fig)
