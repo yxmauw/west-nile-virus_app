@@ -36,7 +36,7 @@ fig.update(layout_coloraxis_showscale=False) # removes default color scale on th
 st.plotly_chart(fig, use_container_width=True)
 
 for i in range(len(df2)):
-    fig.add_trace(go.Scattergeo(df2, lat='Latitude', lon='Longitude', mode='markers'))
+    fig.add_trace(go.Scattergeo(lat=df2['Latitude'], lon=df2['Longitude'], mode='markers'))
     # Sleep for a moment just for demonstration purposes, so that the new data
     # animates in.
     time.sleep(0.1)
