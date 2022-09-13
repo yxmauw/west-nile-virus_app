@@ -21,7 +21,10 @@ no_spray_df = data_no_spray().drop_duplicates()
 spray_df = data_spray().drop_duplicates()
 
 st.sidebar.title('🦟 Identifying presence of West Nile Virus per Trap')
-st.sidebar.info('## What if all trap areas were not sprayed?')
+st.sidebar.write('Predicted Incidence of West Nile Virus')
+st.sidebar.info('## Sprayed')
+st.sidebar.markdown('vs')
+st.sidebar.info('## No Spray')
 
 #px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
 col1, col2 = st.columns(2) # format 2 columns 
