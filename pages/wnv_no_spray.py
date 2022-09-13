@@ -25,9 +25,10 @@ st.sidebar.info('## What if all trap areas were not sprayed?')
 fig = go.Figure(go.Densitymapbox(lat=df.Latitude, 
                                  lon=df.Longitude, 
                                  z=df.WnvPresent,
-                                 radius=10))
-
-
+                                 radius=10,
+                                 zoom=9,
+                                 height=650,
+                                 title='Density map of West Nile Virus if all trap area were NOT sprayed'))
 
 #fig = px.scatter_mapbox(df1, 
                         #lat='Latitude', 
