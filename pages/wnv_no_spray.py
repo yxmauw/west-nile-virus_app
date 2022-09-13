@@ -7,7 +7,7 @@ import pickle
 # https://plotly.com/python/mapbox-density-heatmaps/
 @st.cache
 def data(): 
-    with open('../st_no_sprayed.pkl', 'rb') as f:
+    with open('west_nile_virus_app/st_no_sprayed.pkl', 'rb') as f:
         df = pickle.load(f)
     return df
 
