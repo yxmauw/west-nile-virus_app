@@ -73,3 +73,9 @@ fig.update_layout(mapbox_style="carto-positron", mapbox2_style="carto-positron")
 fig.update_traces(showscale=False) # removes default color scale on the side
 
 st.plotly_chart(fig, use_container_width=False) 
+
+#for i in range(len(locations)):
+    #background.add_rows(locations)
+    # Sleep for a moment just for demonstration purposes, so that the new data
+    # animates in.
+    #time.sleep(0.1)
