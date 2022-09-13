@@ -8,7 +8,7 @@ import plotly.express as px
 # https://plotly.com/python/scattermapbox/
 @st.cache
 def data(): 
-    df = pd.read_csv('../assets/input/train.csv')
+    df = pd.read_csv('./train.csv')
     return df
 
 # traps.rename(columns={'Longitude':'longitude',
