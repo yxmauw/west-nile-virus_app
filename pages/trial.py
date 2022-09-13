@@ -24,10 +24,14 @@ fig = make_subplots(
     rows=1, cols=2,
     subplot_titles=("Plot 1", "Plot 2"))
 
-fig.add_trace(go.Densitymapbox(lat=no_spray_df['Latitude'], lon=no_spray_df['Longitude']),
+fig.add_trace(go.Densitymapbox(lat=no_spray_df['Latitude'], lon=no_spray_df['Longitude']), z=no_spray_df['WnvPresent'], 
+                    radius = 4,
+                    subplot=mapbox,
               row=1, col=1)
 
-fig.add_trace(go.Densitymapbox(lat=spray_df['Latitude'], lon=['Longitude']),
+fig.add_trace(go.Densitymapbox(lat=spray_df['Latitude'], lon=['Longitude']), z=spray_df['WnvPresent'], 
+                    radius = 4,
+                    subplot=mapbox,
               row=1, col=2)
 
 fig.update_layout(mapbox_style="carto-positron",  mapbox_center = {"lat": 41.85, "lon": -87.7})
