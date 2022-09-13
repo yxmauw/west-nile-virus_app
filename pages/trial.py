@@ -20,7 +20,7 @@ def data_spray():
 no_spray_df = data_no_spray().drop_duplicates()
 spray_df = data_spray().drop_duplicates()
 
-mapboxt = open('.mapbox_token.txt').read().rstrip()
+mapboxt = open('./.gitignore/.mapbox_token.txt').read().rstrip()
 
 fig = make_subplots(
     rows=1, cols=2,
