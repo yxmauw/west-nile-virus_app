@@ -4,6 +4,8 @@ import pandas as pd
 import plotly.express as px
 import pickle
 
+st.set_page_config(layout="wide")
+
 # https://plotly.com/python/mapbox-density-heatmaps/
 @st.cache
 def data_no_spray(): 
