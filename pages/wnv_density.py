@@ -40,7 +40,7 @@ with col1:
                             width=600,
                             title='Density map of West Nile Virus if all trap area were NOT sprayed'
                             )
-        fig.update_layout(mapbox_style="carto-positron", mapbox_center = {"lat": 41.85, "lon": -87.63})
+        fig.update_layout(mapbox_style="carto-positron", mapbox_center = {"lat": 41.85, "lon": -87.6})
                                            
         fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
            
@@ -57,7 +57,7 @@ with col2:
                             width=600,
                             title='Density map of West Nile Virus if all trap area were ALL sprayed'
                             )
-        fig.update_layout(mapbox_style="carto-positron",  mapbox_center = {"lat": 41.85, "lon": -87.63})
+        fig.update_layout(mapbox_style="carto-positron",  mapbox_center = {"lat": 41.85, "lon": -87.6})
 
         fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
            
