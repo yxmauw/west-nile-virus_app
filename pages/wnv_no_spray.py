@@ -38,7 +38,7 @@ with col1:
                                            
         fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
            
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=False)
    
 with col2:
         fig = px.density_mapbox(spray_df, 
@@ -54,4 +54,4 @@ with col2:
 
         fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
            
-        st.plotly_chart(fig, use_container_width=True) 
+        st.plotly_chart(fig, use_container_width=False) 
