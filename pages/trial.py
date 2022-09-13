@@ -6,6 +6,7 @@ import pandas as pd
 #from plotly.subplots import make_subplots
 import pickle
 import matplotlib.pyplot as plt
+import time
 
 st.set_page_config(layout="wide")
 
