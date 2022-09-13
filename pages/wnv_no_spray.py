@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import pickle
+import plotly.figure_factory as ff
 
 # https://plotly.com/python/mapbox-density-heatmaps/
 @st.cache
@@ -19,7 +20,6 @@ st.sidebar.info('## What if all trap areas were not sprayed?')
 px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
 # this format allows animation
 
-fig, ax = st.map()
 fig = px.density_mapbox(df, 
                         lat='Latitude', 
                         lon='Longitude', 
