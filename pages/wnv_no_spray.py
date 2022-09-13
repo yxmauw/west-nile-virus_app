@@ -3,9 +3,6 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import pickle
-import plotly.graph_objects as go
-import time
-import matplotlib.pyplot as plt
 
 # https://plotly.com/python/mapbox-density-heatmaps/
 @st.cache
@@ -14,9 +11,7 @@ def data():
         df = pickle.load(f)
     return df
 
-df = data()
-#df1 = df.head(10)
-#df2 = df.iloc[10:]
+df = data().drop_duplicates()
 
 st.sidebar.title('🦟 Identifying presence of West Nile Virus per Trap')
 st.sidebar.info('## What if all trap areas were not sprayed?')
@@ -36,14 +31,7 @@ fig.update_layout(mapbox_style="carto-positron",
                   mapbox_center = {"lat": 41.85, "lon": -87.63}
                   )
 
-#fig.update(layout_coloraxis_showscale=False, 
-           #) # removes default color scale on the side
+fig.update(layout_coloraxis_showscale=False, 
+           ) # removes default color scale on the side
 
 st.plotly_chart(fig, use_container_width=True)
-#chart = st.plotly_chart(fig, use_container_width=True)
-
-#for i in range(len(df2)):
-   # chart.add_rows(df2) 
-    # Sleep for a moment just for demonstration purposes, so that the new data
-    # animates in.
-    #time.sleep(0.1)
