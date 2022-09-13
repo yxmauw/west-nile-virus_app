@@ -5,6 +5,7 @@ import plotly.express as px
 import pickle
 import plotly.graph_objects as go
 import time
+import matplotlib.pyplot as plt
 
 # https://plotly.com/python/mapbox-density-heatmaps/
 @st.cache
