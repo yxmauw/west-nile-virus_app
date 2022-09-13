@@ -24,7 +24,7 @@ fig = px.density_mapbox(df,
                         z='WnvPresent', 
                         animation_frame='Date',
                         zoom=9,
-                        height=650,
+                        height=750,
                         title='Density map of West Nile Virus if all trap area were NOT sprayed'
                         )
 fig.update_layout(mapbox_style="carto-positron", 
