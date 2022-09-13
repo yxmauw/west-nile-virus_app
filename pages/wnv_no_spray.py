@@ -31,7 +31,8 @@ fig = go.Figure(go.Densitymapbox(lat=df.Latitude,
                                xaxis=dict(range=[-88.0, -87.5]))
                )
 
-fig.update_traces(colorbar_tickformatstops=[9,None], selector=dict(type='densitymapbox'))
+fig.update_traces(colorbar_tickformatstops=[dict(dtickrange=[9,None])], selector=dict(type='densitymapbox'))
+
 #fig = px.scatter_mapbox(df1, 
                         #lat='Latitude', 
                         #lon='Longitude', 
