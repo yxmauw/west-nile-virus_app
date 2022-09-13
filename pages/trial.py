@@ -22,7 +22,9 @@ spray_df = data_spray().drop_duplicates()
 
 fig = make_subplots(
     rows=1, cols=2,
-    subplot_titles=("Plot 1", "Plot 2"))
+    subplot_titles=("Plot 1", "Plot 2"),
+    specs=[[{"type": "mapbox"}, {"type": "mapbox"}]])
+          
 
 fig.add_trace(go.Densitymapbox(lat=no_spray_df['Latitude'], lon=no_spray_df['Longitude']), z=no_spray_df['WnvPresent'], 
                     radius = 4,
