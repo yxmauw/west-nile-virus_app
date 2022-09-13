@@ -18,6 +18,8 @@ st.sidebar.info('## What if all trap areas were not sprayed?')
 
 px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
 # this format allows animation
+
+fig, ax = st.mapbox()
 fig = px.density_mapbox(df, 
                         lat='Latitude', 
                         lon='Longitude', 
