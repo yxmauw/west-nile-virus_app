@@ -29,7 +29,7 @@ fig = px.scatter_mapbox(df1,
                         #radius=10,
                         zoom=9,
                         height=650,
-                        title='''Density map of West Nile Virus if all trap areas \n
+                        title='''Density map of West Nile Virus if all trap areas
                                  were NOT sprayed'''
                         )
 fig.update_layout(mapbox_style="carto-positron", 
