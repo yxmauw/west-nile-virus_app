@@ -34,7 +34,7 @@ fig = px.scatter_mapbox(df1,
 fig.update_layout(mapbox_style="carto-positron", 
                   mapbox_center = {"lat": 41.85, "lon": -87.63})
 
-# fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
+fig.update(layout_coloraxis_showscale=False) # removes default color scale on the side
 st.plotly_chart(fig, use_container_width=True)
 
 for i in range(len(df2)):
