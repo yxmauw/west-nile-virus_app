@@ -20,7 +20,11 @@ st.sidebar.info('## What if all trap areas were not sprayed?')
 
 
 #px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
-st.map(df1)
+df1.rename(columns={'Longitude':'longitude',
+                      'Latitude':'latitude'}, inplace=True) # st.map only recognised these col names
+df2.rename(columns={'Longitude':'longitude',
+                      'Latitude':'latitude'}, inplace=True) 
+fig = st.map(df1)
 # this format allows animation
 
 #fig = px.scatter_mapbox(df1, 
