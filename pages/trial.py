@@ -27,14 +27,36 @@ fig = make_subplots(
     subplot_titles=("Plot 1", "Plot 2"),
     specs=[[{"type": "mapbox"}, {"type": "mapbox"}]])
           
-
-fig.add_trace(go.Densitymapbox(lat=no_spray_df['Latitude'], lon=no_spray_df['Longitude'], z=no_spray_df['WnvPresent'], 
-                    radius = 4,), 
+fig.add_trace(px.density_mapbox(no_spray_df, 
+                            lat='Latitude', 
+                            lon='Longitude', 
+                            z='WnvPresent', 
+                            animation_frame='Date',
+                            zoom=9,
+                            height=750,
+                            width=600,
+                            title='Density map of West Nile Virus if all trap area were NOT sprayed'
+                            ),
               row=1, col=1)
 
-fig.add_trace(go.Densitymapbox(lat=spray_df['Latitude'], lon=spray_df['Longitude'], z=spray_df['WnvPresent'], 
-                    radius = 4,), 
+fig.add_trace(px.density_mapbox(spray_df, 
+                            lat='Latitude', 
+                            lon='Longitude', 
+                            z='WnvPresent', 
+                            animation_frame='Date',
+                            zoom=9,
+                            height=750,
+                            width=600,
+                            title='Density map of West Nile Virus if all trap area were ALL sprayed'
+                            ),
               row=1, col=2)
+#fig.add_trace(go.Densitymapbox(lat=no_spray_df['Latitude'], lon=no_spray_df['Longitude'], z=no_spray_df['WnvPresent'], 
+                   # radius = 4,), 
+             # row=1, col=1)
+
+#fig.add_trace(go.Densitymapbox(lat=spray_df['Latitude'], lon=spray_df['Longitude'], z=spray_df['WnvPresent'], 
+                 #   radius = 4,), 
+             # row=1, col=2)
 
 #update the common attributes:
 fig.update_mapboxes(
@@ -42,8 +64,7 @@ fig.update_mapboxes(
         center=dict(
             lat=41.85,
             lon=-87.7
-        ),
-        zoom=8)
+        ))
    
 #update different styles:
 fig.update_layout(mapbox_style="carto-positron", mapbox2_style="carto-positron")
