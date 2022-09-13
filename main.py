@@ -21,7 +21,7 @@ trap_locations = df[['Longitude', 'Latitude','Trap','Date']].drop_duplicates()
 st.sidebar.title('🦟 Identifying presence of West Nile Virus per Trap')
 st.sidebar.info('## All Traps 🪤 map')
 # st.map(locations) # plots all points at once
-px.set_mapbox_access_token(open('.mapbox_token.txt').read())
+px.set_mapbox_access_token(open('./gitignore/.mapbox_token.txt').read())
 # this format allows animation
 fig = px.scatter_mapbox(trap_locations, 
                         lat="Latitude", 
