@@ -19,8 +19,8 @@ st.sidebar.title('🦟 Identifying presence of West Nile Virus per Trap')
 st.sidebar.info('## What if all trap areas were not sprayed?')
 
 
-px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
-fig = st.map(df1)
+#px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
+st.map(df1)
 # this format allows animation
 
 #fig = px.scatter_mapbox(df1, 
