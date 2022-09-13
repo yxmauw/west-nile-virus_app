@@ -42,6 +42,12 @@ ax.imshow(mapdata,
 
 st.pyplot(fig)
 
+for i in range(len(no_spray_df)):
+    fig.add_rows(no_spray_df)
+    # Sleep for a moment just for demonstration purposes, so that the new data
+    # animates in.
+    time.sleep(0.1)
+
 #fig = make_subplots(
    # rows=1, cols=2,
    # subplot_titles=("Plot 1", "Plot 2"),
@@ -93,8 +99,4 @@ st.pyplot(fig)
 
 #st.plotly_chart(fig, use_container_width=False) 
 
-#for i in range(len(locations)):
-    #background.add_rows(locations)
-    # Sleep for a moment just for demonstration purposes, so that the new data
-    # animates in.
-    #time.sleep(0.1)
+
