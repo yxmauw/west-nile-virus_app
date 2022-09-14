@@ -39,9 +39,6 @@ lon_lat_box = (-88.0, -87.5, 41.6, 42.1)
 # of x and y
 x, y = [],[]
 
-# to run GUI event loop
-plt.ion()
-
 # here we are creating sub plots
 fig, ax = plt.subplots(figsize=(10,14))
 sc = ax.scatter(x, y)
