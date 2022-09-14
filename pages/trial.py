@@ -40,6 +40,9 @@ x, y = [],[]
 
 # here we are creating sub plots
 fig, ax = plt.subplots(figsize=(5,8))
+sc = ax.scatter(x,y)
+
+plt.ion()
 
 ax.imshow(mapdata, 
           cmap=plt.get_cmap('gray'), 
@@ -51,9 +54,11 @@ plt.xlabel("Longitude")
 plt.ylabel("Latitude")
 
 for i in range(0, 100, 10):
-    x.append(no_spray_df['Longitude'][i:i+10])
-    y.append(no_spray_df['Latitude'][i:i+10])
-    ax.scatter(x, y)
+    new_x = no_spray_df['Longitude'][i:i+10]
+    new_y = no_spray_df['Latitude'][i:i+10]
+    sc.set_xdata(new_x)
+    sc.set_ydata(new_y)
+    fig.canvas.draw()
     time.sleep(0.1)
 
 st.pyplot(fig)
