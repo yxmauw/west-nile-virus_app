@@ -39,7 +39,7 @@ lon_lat_box = (-88.0, -87.5, 41.6, 42.1)
 x, y = [],[]
 
 # here we are creating sub plots
-fig, ax = plt.subplots(figsize=(10,14))
+fig, ax = plt.subplots(figsize=(5,8))
 
 ax.imshow(mapdata, 
           cmap=plt.get_cmap('gray'), 
