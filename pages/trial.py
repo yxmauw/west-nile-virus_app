@@ -36,8 +36,8 @@ lon_lat_box = (-88.0, -87.5, 41.6, 42.1)
 
 # creating initial data values
 # of x and y
-x = no_spray_df['Longitude'][:10]
-y = no_spray_df['Latitude'][:10]
+x = (no_spray_df['Longitude'])[:10]
+y = (no_spray_df['Latitude'])[:10]
 
 # to run GUI event loop
 plt.ion()
@@ -56,10 +56,10 @@ plt.xlabel("Longitude")
 plt.ylabel("Latitude")
 
 # Loop
-for _ in range(100):
+for i in range(100):
     # creating new Y values
-    new_y = no_spray_df['Latitude'][ _ + 10]
-    new_x = no_spray_df['Longitude'][ _ + 10]
+    new_y = (no_spray_df['Latitude'])[ i + 10]
+    new_x = (no_spray_df['Longitude'])[ i + 10]
  
     # updating data values
     line1.set_xdata(new_x)
