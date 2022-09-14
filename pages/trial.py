@@ -34,25 +34,49 @@ mapdata = mapdata()
 aspect = mapdata.shape[0] * 1.0 / mapdata.shape[1]
 lon_lat_box = (-88.0, -87.5, 41.6, 42.1)
 
-fig, ax = plt.subplots(1,1,figsize=(10,14))
+# creating initial data values
+# of x and y
+x = no_spray_df['Longitude'][:10]
+y = no_spray_df['Latitude'][:10]
+
+# to run GUI event loop
+plt.ion()
+
+# here we are creating sub plots
+fig, ax = plt.subplots(figsize=(10,14))
+scatter, = ax.scatterplot(x, y)
 
 ax.imshow(mapdata, 
-               cmap=plt.get_cmap('gray'), 
-               extent=lon_lat_box, 
-               aspect=aspect)
+          cmap=plt.get_cmap('gray'), 
+          extent=lon_lat_box, 
+          aspect=aspect)
+
+# setting x-axis label and y-axis label
+plt.xlabel("Longitude")
+plt.ylabel("Latitude")
+
+# Loop
+for _ in range(100):
+    # creating new Y values
+    new_y = no_spray_df['Latitude'][ _ + 10]
+    new_x = no_spray_df['Longitude'][ _ + 10]
+ 
+    # updating data values
+    line1.set_xdata(new_x)
+    line1.set_ydata(new_y)
+ 
+    # drawing updated values
+    figure.canvas.draw()
+ 
+    # This will run the GUI event
+    # loop until all UI events
+    # currently waiting have been processed
+    figure.canvas.flush_events()
+ 
+    time.sleep(0.1)
 
 st.pyplot(fig)
-
-f = st.pyplot(fig)
-
-def animate(i):
-    scatter, = ax.plot(no_spray_df['Longitude'], no_spray_df['Latitude'])
-    ax.set_data(no_spray_df.iloc[i:50+i])
-    f.pyplot(fig)
-    
-for i in range(1000):
-    animate(i)
-    time.sleep(0.1)
+###########
 
 #fig = make_subplots(
    # rows=1, cols=2,
