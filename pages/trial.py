@@ -56,7 +56,7 @@ plt.xlabel("Longitude")
 plt.ylabel("Latitude")
 
 # Loop
-for i in range(len(no_spray_df):
+for i in range(len(no_spray_df)):
     # creating new Y values
     new_y = (no_spray_df['Latitude'])[(i + 10) : (i + 20)]
     new_x = (no_spray_df['Longitude'])[(i + 10) : (i + 20)]
