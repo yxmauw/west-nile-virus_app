@@ -62,16 +62,16 @@ for i in range(len(no_spray_df)):
     new_x = (no_spray_df['Longitude'])[(i + 10) : (i + 20)]
  
     # updating data values
-    line1.set_xdata(new_x)
-    line1.set_ydata(new_y)
+    scatter.set_xdata(new_x)
+    scatter.set_ydata(new_y)
  
     # drawing updated values
-    figure.canvas.draw()
+    fig.canvas.draw()
  
     # This will run the GUI event
     # loop until all UI events
     # currently waiting have been processed
-    figure.canvas.flush_events()
+    fig.canvas.flush_events()
  
     time.sleep(0.1)
 
