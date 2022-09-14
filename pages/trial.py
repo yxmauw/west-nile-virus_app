@@ -60,7 +60,7 @@ def animate(i):
 ani = matplotlib.animation.FuncAnimation(fig, animate, 
                 frames=5, interval=100, repeat=True)  
 
-st.pyplot(fig)
+st.pyplot(ani)
 ###########
 
 #fig = make_subplots(
