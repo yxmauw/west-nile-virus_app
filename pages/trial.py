@@ -8,7 +8,7 @@ import pickle
 import matplotlib.pyplot as plt
 import time
 
-st.set_page_config(layout="wide")
+#st.set_page_config(layout="wide")
 
 @st.cache
 def data_no_spray(): 
