@@ -44,7 +44,7 @@ plt.ion()
 
 # here we are creating sub plots
 fig, ax = plt.subplots(figsize=(10,14))
-scatter, = ax.scatter(x, y)
+scatter = ax.scatter(x, y)
 
 ax.imshow(mapdata, 
           cmap=plt.get_cmap('gray'), 
