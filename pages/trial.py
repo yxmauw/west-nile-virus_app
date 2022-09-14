@@ -46,7 +46,8 @@ st.pyplot(fig)
 f = st.pyplot(fig)
 
 def animate(i):
-    fig.set_ydata(no_spray_df[i:50+i])
+    scatter, = ax.plot(no_spray_df['Longitude'], no_spray_df['Latitude'])
+    fig.set_data(no_spray_df.iloc[i:50+i])
     f.pyplot(fig)
     
 for i in range(1000):
