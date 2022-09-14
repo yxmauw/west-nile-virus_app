@@ -6,6 +6,7 @@ import pandas as pd
 #from plotly.subplots import make_subplots
 import pickle
 import matplotlib.pyplot as plt
+import matplotlib.animation
 import time
 
 st.set_page_config(layout="wide")
@@ -36,15 +37,14 @@ lon_lat_box = (-88.0, -87.5, 41.6, 42.1)
 
 # creating initial data values
 # of x and y
-x = (no_spray_df['Longitude'])[:10]
-y = (no_spray_df['Latitude'])[:10]
+x, y = [],[]
 
 # to run GUI event loop
 plt.ion()
 
 # here we are creating sub plots
 fig, ax = plt.subplots(figsize=(10,14))
-scatter = ax.scatter(x, y)
+sc = ax.scatter(x, y)
 
 ax.imshow(mapdata, 
           cmap=plt.get_cmap('gray'), 
@@ -55,25 +55,13 @@ ax.imshow(mapdata,
 plt.xlabel("Longitude")
 plt.ylabel("Latitude")
 
-# Loop
-for i in range(len(no_spray_df)):
-    # creating new Y values
-    new_y = (no_spray_df['Latitude'])[(i + 10) : (i + 20)]
-    new_x = (no_spray_df['Longitude'])[(i + 10) : (i + 20)]
+def animate(i):
+    for i in range(0,100,10):
+        x.append(no_spray_df['Longitude'][i:i+10])
+        y.append(no_spray_df['Latitude'][i:i+10])
  
-    # updating data values
-    scatter.set_xdata(new_x)
-    scatter.set_ydata(new_y)
- 
-    # drawing updated values
-    fig.canvas.draw()
- 
-    # This will run the GUI event
-    # loop until all UI events
-    # currently waiting have been processed
-    fig.canvas.flush_events()
- 
-    time.sleep(0.1)
+ani = matplotlib.animation.FuncAnimation(fig, animate, 
+                frames=5, interval=100, repeat=True)  
 
 st.pyplot(fig)
 ###########
