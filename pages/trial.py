@@ -6,7 +6,6 @@ import pandas as pd
 #from plotly.subplots import make_subplots
 import pickle
 import matplotlib.pyplot as plt
-import matplotlib.animation
 import time
 
 st.set_page_config(layout="wide")
@@ -41,7 +40,6 @@ x, y = [],[]
 
 # here we are creating sub plots
 fig, ax = plt.subplots(figsize=(10,14))
-sc = ax.scatter(x, y)
 
 ax.imshow(mapdata, 
           cmap=plt.get_cmap('gray'), 
@@ -52,15 +50,13 @@ ax.imshow(mapdata,
 plt.xlabel("Longitude")
 plt.ylabel("Latitude")
 
-def animate(i):
-    for i in range(0,100,10):
-        x.append(no_spray_df['Longitude'][i:i+10])
-        y.append(no_spray_df['Latitude'][i:i+10])
- 
-ani = matplotlib.animation.FuncAnimation(fig, animate, 
-                frames=5, interval=100, repeat=True)  
+for i in range(0, 100, 10):
+    x.append(no_spray_df['Longitude'][i:i+10])
+    y.append(no_spray_df['Latitude'][i:i+10])
+    ax.scatter(x, y)
+    time.sleep(0.1)
 
-st.pyplot(ani)
+st.pyplot(fig)
 ###########
 
 #fig = make_subplots(
