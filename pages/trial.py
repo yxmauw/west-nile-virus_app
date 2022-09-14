@@ -40,7 +40,7 @@ x, y = [],[]
 
 # here we are creating sub plots
 fig, ax = plt.subplots(figsize=(5,8))
-sc = ax.scatter(x,y)
+sc = ax.scatter(x,y)[0]
 
 plt.ion()
 
