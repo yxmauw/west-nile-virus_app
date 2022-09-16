@@ -1,7 +1,7 @@
 # West Nile Virus web app using [Streamlit](https://streamlit.io/)
 For GA DSIF5 project 4
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://yxmauw-west-nile-virus-app-main-1uthad.streamlitapp.com/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://yxmauw-west-nile-virus-simulation.streamlitapp.com/)
 
 ```
 App structure
