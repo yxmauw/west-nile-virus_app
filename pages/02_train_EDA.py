@@ -49,8 +49,8 @@ with scd_container:
     st.header('Map showing which traps had West Nile Virus detected')
     px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
     fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="WnvPresent", 
-                            #color_discrete_sequence=['SteelBlue','Red'],
-                  # zoom=9, height=650, opacity=0.3)
+                            color_discrete_sequence=['SteelBlue','Red'],
+                   zoom=9, height=650, opacity=0.3)
     # fig = go.Figure(data=go.Scattergeo(lon=df['Longitude'], lat=df['Latitude'],
                                    #mode='markers', marker_color=df['WnvPresent'], locationmode='USA-states'))
     fig.update_traces(marker={'color':['steelblue','red'], 'symbol':['x','circle']}, selector=dict(type='mapbox'))
