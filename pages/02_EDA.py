@@ -35,6 +35,7 @@ def barplot1():
     for ax in axes: # to iterate each subplot legend position
         ax.legend(loc='upper right') 
     plt.subplots_adjust(hspace=0.24) # space between subplots
+    return fig
     
 st.pyplot(barplot1())
           
