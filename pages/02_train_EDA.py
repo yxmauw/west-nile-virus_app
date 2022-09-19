@@ -64,7 +64,7 @@ with scd_container:
             lat=38,
             lon=-94
         ),
-        zoom=9,
+        zoom=20,
         style='light'
     ))
     st.plotly_chart(fig, use_container_width=True)
