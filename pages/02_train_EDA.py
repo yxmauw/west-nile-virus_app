@@ -41,3 +41,5 @@ with st.container():
     st.pyplot(barplot1())
           
 with st.container():
+    px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
+    
