@@ -8,6 +8,8 @@ import seaborn as sns
 @st.cache
 def train_data(): 
     df = pd.read_csv('./train.csv', parse_dates=[0], infer_datetime_format=True)
+    # set date as index
+    df.set_index('Date', inplace=True)
     return df
 
 st.container()
