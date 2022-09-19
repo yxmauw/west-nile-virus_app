@@ -2,7 +2,6 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import pickle
 import seaborn as sns
 import plotly.express as px
 
@@ -17,7 +16,6 @@ df = train_data()
 
 with st.container():
     st.header('Barplots showing Top 20 Traps with highest mosquito count in respective years')
-    
 
     def barplot1():
         df1 = pd.DataFrame((df.loc['2007'].groupby(['Trap','Species'])['NumMosquitos'].agg('sum')).sort_values(ascending=False)[:20]).reset_index()
@@ -41,6 +39,7 @@ with st.container():
         return fig
     
     st.pyplot(barplot1())
+    
           
 with st.container():
     st.header('Map showing which traps had West Nile Virus detected')
