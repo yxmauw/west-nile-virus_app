@@ -47,4 +47,4 @@ with st.container():
     px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
     fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="Trap", size="WnvPresent",
                   color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=8)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
