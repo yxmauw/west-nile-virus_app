@@ -54,4 +54,17 @@ with scd_container:
     fig = go.Figure(data=go.Scattergeo(lon=df['Longitude'], lat=df['Latitude'],
                                    mode='markers', marker_color=df['WnvPresent']))
     fig.update_traces(marker={'color':['steelblue','red'], 'symbol':['x','circle']}, selector=dict(type='scattergeo'))
+    fig.update_layout(
+    autosize=True,
+    hovermode='closest',
+    showlegend=False,
+    mapbox=dict(
+        bearing=0,
+        center=dict(
+            lat=38,
+            lon=-94
+        ),
+        zoom=9,
+        style='light'
+    ),
     st.plotly_chart(fig, use_container_width=True)
