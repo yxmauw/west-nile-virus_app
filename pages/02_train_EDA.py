@@ -44,5 +44,6 @@ with st.container():
           
 with st.container():
     px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
-    #fig = px.scatter_mapbox(df, lat="lat", lon="centroid_lon",     color="peak_hour", size="car_hours",
-                  #color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=10)
+    fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="Trap", size="WnvPresent",
+                  color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=8)
+    st.plotly_chart(fig)
