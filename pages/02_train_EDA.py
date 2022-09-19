@@ -47,11 +47,7 @@ with frt_container:
 with scd_container:
     st.header('Map showing which traps had West Nile Virus detected')
     px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
-    fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="Trap",
-                   zoom=9, height=650, opacity=0.05)
-    fig2 = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="WnvPresent",
-                             color_discrete_map={ # replaces default color mapping by value
-                "1": "RebeccaPurple", "0": "MediumPurple"},
-                   zoom=9, height=650, opacity=0.5)
-    fig.add_trace(fig2.data[0])
+    fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="WnvPresent", 
+                            color_discrete_sequence=['SteelBlue','Red'],
+                   zoom=9, height=650, opacity=0.3)
     st.plotly_chart(fig, use_container_width=True)
