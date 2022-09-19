@@ -6,8 +6,7 @@ import pickle
 
 @st.cache
 def train_data(): 
-    with open('st_no_sprayed.pkl', 'rb') as f:
-        df = pickle.load(f)
+    df = pd.read_csv('../train.csv')
     return df
 
 st.container()
