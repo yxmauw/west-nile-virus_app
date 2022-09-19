@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import plotly.express as px
+import plotly.graph_objects as go
 
 @st.cache
 def train_data(): 
@@ -47,7 +48,9 @@ with frt_container:
 with scd_container:
     st.header('Map showing which traps had West Nile Virus detected')
     px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
-    fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="WnvPresent", 
-                            color_discrete_sequence=['SteelBlue','Red'],
-                   zoom=9, height=650, opacity=0.3)
+    #fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="WnvPresent", 
+                            #color_discrete_sequence=['SteelBlue','Red'],
+                  # zoom=9, height=650, opacity=0.3)
+    fig = go.Figure(data=go.Scattergeo(lon=df['Longitude'], lat=df['Latitude'],
+                                   mode='markers', marker_color=df['WnvPresent'], marker=['x','circle'], marker.color=['steelblue','red']))
     st.plotly_chart(fig, use_container_width=True)
