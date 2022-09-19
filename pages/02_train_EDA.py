@@ -13,9 +13,11 @@ def train_data():
     df.set_index('Date', inplace=True)
     return df
 
+df = train_data()
+
 with st.container():
     st.header('Barplots showing Top 20 Traps with highest mosquito count in respective years')
-    df = train_data()
+    
 
     def barplot1():
         df1 = pd.DataFrame((df.loc['2007'].groupby(['Trap','Species'])['NumMosquitos'].agg('sum')).sort_values(ascending=False)[:20]).reset_index()
@@ -42,4 +44,5 @@ with st.container():
           
 with st.container():
     px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
-    
+    #fig = px.scatter_mapbox(df, lat="lat", lon="centroid_lon",     color="peak_hour", size="car_hours",
+                  #color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=10)
