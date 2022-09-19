@@ -14,35 +14,39 @@ def train_data():
 
 df = train_data()
 
-st.header('Barplots showing Top 20 Traps with highest mosquito count in respective years')
+frt_container = st.container()
+scd_container = st.container()
 
-def barplot1():
-    df1 = pd.DataFrame((df.loc['2007'].groupby(['Trap','Species'])['NumMosquitos'].agg('sum')).sort_values(ascending=False)[:20]).reset_index()
-    df2 = pd.DataFrame((df.loc['2009'].groupby(['Species','Trap'])['NumMosquitos'].agg('sum')).sort_values(ascending=False)[:20]).reset_index()
-    df3 = pd.DataFrame((df.loc['2011'].groupby(['Species','Trap'])['NumMosquitos'].agg('sum')).sort_values(ascending=False)[:20]).reset_index()
-    df4 = pd.DataFrame((df.loc['2013'].groupby(['Species','Trap'])['NumMosquitos'].agg('sum')).sort_values(ascending=False)[:20]).reset_index()
+with frt_container:
+    st.header('Barplots showing Top 20 Traps with highest mosquito count in respective years')
 
-    fig, axes = plt.subplots(4, figsize=(15,20))
+    def barplot1():
+        df1 = pd.DataFrame((df.loc['2007'].groupby(['Trap','Species'])['NumMosquitos'].agg('sum')).sort_values(ascending=False)[:20]).reset_index()
+        df2 = pd.DataFrame((df.loc['2009'].groupby(['Species','Trap'])['NumMosquitos'].agg('sum')).sort_values(ascending=False)[:20]).reset_index()
+        df3 = pd.DataFrame((df.loc['2011'].groupby(['Species','Trap'])['NumMosquitos'].agg('sum')).sort_values(ascending=False)[:20]).reset_index()
+        df4 = pd.DataFrame((df.loc['2013'].groupby(['Species','Trap'])['NumMosquitos'].agg('sum')).sort_values(ascending=False)[:20]).reset_index()
+
+        fig, axes = plt.subplots(4, figsize=(15,20))
     
-    sns.barplot(x='Trap', y='NumMosquitos', hue='Species', data=df1, ax=axes[0])
-    axes[0].set_title('2007 top 20 traps with mosquitos caught', fontsize=13)
-    sns.barplot(x='Trap', y='NumMosquitos', hue='Species', data=df2, ax=axes[1])
-    axes[1].set_title('2009 top 20 traps with mosquitos caught', fontsize=13)
-    sns.barplot(x='Trap', y='NumMosquitos', hue='Species', data=df3, ax=axes[2])
-    axes[2].set_title('2011 top 20 traps with mosquitos caught', fontsize=13)
-    sns.barplot(x='Trap', y='NumMosquitos', hue='Species', data=df4, ax=axes[3])
-    axes[3].set_title('2013 top 20 traps with mosquitos caught', fontsize=13);
-    for ax in axes: # to iterate each subplot legend position
-        ax.legend(loc='upper right') 
-    plt.subplots_adjust(hspace=0.24) # space between subplots
-    return fig
+        sns.barplot(x='Trap', y='NumMosquitos', hue='Species', data=df1, ax=axes[0])
+        axes[0].set_title('2007 top 20 traps with mosquitos caught', fontsize=13)
+        sns.barplot(x='Trap', y='NumMosquitos', hue='Species', data=df2, ax=axes[1])
+        axes[1].set_title('2009 top 20 traps with mosquitos caught', fontsize=13)
+        sns.barplot(x='Trap', y='NumMosquitos', hue='Species', data=df3, ax=axes[2])
+        axes[2].set_title('2011 top 20 traps with mosquitos caught', fontsize=13)
+        sns.barplot(x='Trap', y='NumMosquitos', hue='Species', data=df4, ax=axes[3])
+        axes[3].set_title('2013 top 20 traps with mosquitos caught', fontsize=13);
+        for ax in axes: # to iterate each subplot legend position
+            ax.legend(loc='upper right') 
+        plt.subplots_adjust(hspace=0.24) # space between subplots
+        return fig
     
-st.pyplot(barplot1())
+    st.pyplot(barplot1())
     
           
-
-st.header('Map showing which traps had West Nile Virus detected')
-px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
-fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="Trap", size="WnvPresent",
+with scd_container:
+    st.header('Map showing which traps had West Nile Virus detected')
+    px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
+    fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="Trap", size="WnvPresent",
                   color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=8)
-st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True)
