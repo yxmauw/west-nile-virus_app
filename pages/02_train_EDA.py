@@ -51,7 +51,5 @@ with scd_container:
     fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="WnvPresent", 
                             color_discrete_sequence=['SteelBlue','Red'],
                    zoom=9, height=650, opacity=0.3)
-    # fig = go.Figure(data=go.Scattergeo(lon=df['Longitude'], lat=df['Latitude'],
-                                   #mode='markers', marker_color=df['WnvPresent'], locationmode='USA-states'))
     fig.update_traces(marker={'color':['steelblue','red'], 'symbol':['x','circle']}, selector=dict(type='mapbox'))
     st.plotly_chart(fig, use_container_width=True)
