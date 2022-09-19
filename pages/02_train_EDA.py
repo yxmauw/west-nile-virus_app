@@ -43,6 +43,7 @@ with st.container():
     st.pyplot(barplot1())
           
 with st.container():
+    st.header('Map showing which traps had West Nile Virus detected')
     px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
     fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="Trap", size="WnvPresent",
                   color_continuous_scale=px.colors.cyclical.IceFire, size_max=15, zoom=8)
