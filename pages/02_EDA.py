@@ -7,7 +7,7 @@ import seaborn as sns
 
 @st.cache
 def train_data(): 
-    df = pd.read_csv('../train.csv')
+    df = pd.read_csv('./train.csv')
     return df
 
 st.container()
