@@ -14,7 +14,10 @@ def train_data():
 
 df = train_data()
 
-with st.container():
+frt_container = st.container()
+scd_container = st.container()
+
+with frt_container:
     st.header('Barplots showing Top 20 Traps with highest mosquito count in respective years')
 
     def barplot1():
@@ -41,7 +44,7 @@ with st.container():
     st.pyplot(barplot1())
     
           
-with st.container():
+with scd_container:
     st.header('Map showing which traps had West Nile Virus detected')
     px.set_mapbox_access_token(open('./.gitignore/.mapbox_token.txt').read())
     fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", color="Trap", size="WnvPresent",
